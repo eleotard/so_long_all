@@ -6,7 +6,7 @@
 /*   By: eleotard <eleotard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 23:56:15 by eleotard          #+#    #+#             */
-/*   Updated: 2022/05/10 14:52:09 by eleotard         ###   ########.fr       */
+/*   Updated: 2022/05/11 13:01:51 by eleotard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_print_error_exit(char *error)
 {
-	ft_putstr_fd(error, 1);
+	ft_putstr_fd(error, 2);
 	exit (-1);
 }
 

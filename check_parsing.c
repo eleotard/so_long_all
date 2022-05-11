@@ -6,7 +6,7 @@
 /*   By: eleotard <eleotard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 00:49:30 by eleotard          #+#    #+#             */
-/*   Updated: 2022/05/10 19:30:18 by eleotard         ###   ########.fr       */
+/*   Updated: 2022/05/11 13:01:08 by eleotard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_parsing_check(char *map_str)
 			&& map_str[i] != 'C' && map_str[i] != 'E' && map_str[i] != '\n')
 		{
 			free(map_str);
-			ft_putstr_fd("Error\nCaractere incorect\n", 1);
+			ft_putstr_fd("Error\nCaractere incorect\n", 2);
 			return (ERROR);
 		}
 		i++;
@@ -62,7 +62,7 @@ int	ft_check_occurence(char **map)
 	if (va.x != 1 || va.y != 1 || count_c == 0)
 	{
 		ft_destroy_map(map);
-		ft_putstr_fd("Error\nError Perso or Exit or Collect\n", 1);
+		ft_putstr_fd("Error\nError Perso or Exit or Collect\n", 2);
 		return (ERROR);
 	}
 	return (0);

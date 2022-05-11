@@ -6,7 +6,7 @@
 /*   By: eleotard <eleotard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 00:52:45 by eleotard          #+#    #+#             */
-/*   Updated: 2022/05/10 17:33:31 by eleotard         ###   ########.fr       */
+/*   Updated: 2022/05/11 13:00:33 by eleotard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_check_ber(char *map_name)
 		i++;
 	if (i <= 4)
 	{
-		ft_putstr_fd("Error\nWrong map file format\n", 1);
+		ft_putstr_fd("Error\nWrong map file format\n", 2);
 		return (ERROR);
 	}
 	j = i - 4;
@@ -32,7 +32,7 @@ int	ft_check_ber(char *map_name)
 	if (ft_strcmp(extension, ".ber") != 0)
 	{
 		free(extension);
-		ft_putstr_fd("Error\nWrong map file format\n", 1);
+		ft_putstr_fd("Error\nWrong map file format\n", 2);
 		return (ERROR);
 	}
 	free(extension);
@@ -44,7 +44,7 @@ int	check_edges_char(char **map, char c)
 	if (c != '1')
 	{
 		ft_destroy_map(map);
-		ft_putstr_fd("Error\nMap not closed\n", 1);
+		ft_putstr_fd("Error\nMap not closed\n", 2);
 		return (ERROR);
 	}	
 	return (0);
@@ -92,7 +92,7 @@ int	ft_check_rectangular_map(char **map)
 		if (j != len)
 		{
 			ft_destroy_map(map);
-			ft_putstr_fd("Error\nNon-rectangular map\n", 1);
+			ft_putstr_fd("Error\nNon-rectangular map\n", 2);
 			return (ERROR);
 		}
 		j = 0;
@@ -106,7 +106,7 @@ int	ft_check_valid_map(char **map)
 	if (ft_map_height(map) <= 3 && ft_map_height(map) <= 3)
 	{
 		ft_destroy_map(map);
-		ft_putstr_fd("Error\nMap too small or bad .ber file\n", 1);
+		ft_putstr_fd("Error\nMap too small or bad .ber file\n", 2);
 		return (ERROR);
 	}
 	return (0);
