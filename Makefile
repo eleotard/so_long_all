@@ -6,13 +6,12 @@
 #    By: eleotard <eleotard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/25 20:32:02 by eleotard          #+#    #+#              #
-#    Updated: 2022/05/10 17:40:06 by eleotard         ###   ########.fr        #
+#    Updated: 2022/05/13 21:47:41 by eleotard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= so_long
 
-# SRCS	= try.c
 SRCS	= main_and_init.c			\
 			get_next_line.c			\
 			get_next_line_utils.c	\
@@ -44,11 +43,11 @@ OBJ	= ${SRCS:%.c=%.o}
 
 OBJ_BONUS	= ${SRCS_BONUS:%.c=%.o}
 
-MLX		= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+MLX		= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz 
 
 LIBFT	= -Llibft -lft
 
-CFLAGS	= -Wall -Werror -Wextra -g3
+CFLAGS	= -Wall -Werror -Wextra
 
 CC		= clang
 

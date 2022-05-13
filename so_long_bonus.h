@@ -6,7 +6,7 @@
 /*   By: eleotard <eleotard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 15:38:32 by eleotard          #+#    #+#             */
-/*   Updated: 2022/05/10 19:27:13 by eleotard         ###   ########.fr       */
+/*   Updated: 2022/05/13 16:48:47 by eleotard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 # define ERROR			(-1)
 # define BUFFER_SIZE	1
 # define COMPTEUR		80000
-
 # define SIZEPIC		60
 
 typedef struct s_gestion
