@@ -1,3 +1,19 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: eleotard <eleotard@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/05/15 14:37:48 by eleotard          #+#    #+#              #
+#    Updated: 2022/05/15 14:42:58 by eleotard         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME	= libft.a
+
+BONUS	= libft.a
+
 SRCS	= ft_isalpha.c ft_isdigit.c ft_isalnum.c 			\
 		ft_isascii.c ft_isprint.c ft_strlen.c ft_memset.c 	\
 		ft_bzero.c ft_memcpy.c ft_strlcpy.c					\
@@ -9,13 +25,13 @@ SRCS	= ft_isalpha.c ft_isdigit.c ft_isalnum.c 			\
 		ft_strmapi.c ft_striteri.c ft_putchar_fd.c			\
 		ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c		\
 
-BONUS 	= ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c	\
+SRC_BONUS 	= ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c	\
 
 OBJS	= ${SRCS:.c=.o}
 
-BOBJS	= ${BONUS:.c=.o}
+BOBJS	= ${SRC_BONUS:.c=.o}
 
-NAME	= libft.a
+
 
 CC		= gcc
 
@@ -26,21 +42,23 @@ CFLAGS	= -Wall -Wextra -Werror
 .c.o:
 			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
+all:		${NAME}
+
 ${NAME}:	${OBJS}
 			ar rc ${NAME} ${OBJS}
 			ranlib ${NAME}
+			
+bonus: ${BONUS}
 
-all:		${NAME}
-
-bonus:		${BOBJS}
-			ar rc ${NAME} ${BOBJS}
-			ranlib ${NAME}
+${BONUS}:	${BOBJS} ${OBJS}
+			ar rc ${BONUS} ${OBJS} ${BOBJS} 
+			ranlib ${BONUS}
 
 clean:
 			${RM} ${OBJS} ${BOBJS}
 
 fclean:		clean
-			${RM} ${NAME}
+			${RM} ${NAME} ${BONUS}
 
 re:			fclean all
 

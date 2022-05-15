@@ -6,11 +6,13 @@
 #    By: eleotard <eleotard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/25 20:32:02 by eleotard          #+#    #+#              #
-#    Updated: 2022/05/13 21:47:41 by eleotard         ###   ########.fr        #
+#    Updated: 2022/05/14 19:22:34 by eleotard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= so_long
+
+BONUS	= so_long_bonus
 
 SRCS	= main_and_init.c			\
 			get_next_line.c			\
@@ -57,9 +59,11 @@ all: ${NAME}
 
 ${NAME}: ${OBJ} libft/libft.a mlx_linux/libmlx_Linux.a
 	${CC} ${CFLAGS} -o ${NAME} ${OBJ} ${LIBFT} ${MLX}
-	
-bonus: ${OBJ_BONUS} libft/libft.a mlx_linux/libmlx_Linux.a
-	${CC} ${CFLAGS} -o ${NAME} ${OBJ_BONUS} ${LIBFT} ${MLX}
+
+bonus: ${BONUS}
+
+${BONUS}: ${OBJ_BONUS} libft/libft.a mlx_linux/libmlx_Linux.a
+	${CC} ${CFLAGS} -o ${BONUS} ${OBJ_BONUS} ${LIBFT} ${MLX}
 
 %.o: %.c 
 	${CC} ${CFLAGS} -I/usr/include -Imlx_linux -c $< -o $@
@@ -77,7 +81,7 @@ clean:
 
 fclean: clean
 	make -C libft fclean
-	${RM} ${NAME}
+	${RM} ${NAME} ${BONUS}
 
 re:	fclean all
 
