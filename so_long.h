@@ -19,6 +19,7 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include <fcntl.h>
+# include <stdio.h>
 
 # define ERROR			(-1)
 # define BUFFER_SIZE	1

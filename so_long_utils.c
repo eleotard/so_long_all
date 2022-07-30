@@ -49,10 +49,12 @@ char	*join(char *base, char *read)
 	{
 		read = malloc(sizeof(char));
 		if (!read)
-			return (NULL);
+			return (free(base), NULL);
 		read[0] = '\0';
 	}
 	new_read = ft_strjoin_s(base, read);
+	if (!new_read)
+		return (free(read), free(base), NULL);
 	free(read);
 	return (new_read);
 }

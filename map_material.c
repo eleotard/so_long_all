@@ -24,7 +24,7 @@ char	*create_map_str(char *map_name)
 	map_str[0] = '\0';
 	tmp = malloc(sizeof(char) * 1);
 	if (!tmp)
-		return (NULL);
+		return (free(map_str), NULL);
 	tmp[0] = '1';
 	fd = open(map_name, O_RDONLY);
 	while (ft_strcmp(tmp, map_str) != 0)
@@ -32,11 +32,15 @@ char	*create_map_str(char *map_name)
 		tmp = ft_free(tmp, NULL);
 		tmp = ft_strdup(map_str);
 		map_str = join(map_str, get_next_line(fd));
+		if (!map_str)
+			break;
 	}
+	if (!map_str)
+		return (free(tmp), NULL);
 	free(tmp);
 	close(fd);
 	if (ft_parsing_check(map_str) == ERROR)
-		return (NULL);
+		return (free(map_str), NULL);
 	return (map_str);
 }
 
@@ -49,6 +53,8 @@ char	**create_map_tab(char *map_name)
 	if (!map_str)
 		return (NULL);
 	map = ft_split(map_str, '\n');
+	if (!map)
+		return (free(map_str), NULL);
 	free(map_str);
 	if (ft_check_valid_map(map) == ERROR
 		|| ft_check_rectangular_map(map) == ERROR

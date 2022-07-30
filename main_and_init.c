@@ -75,12 +75,12 @@ int	main(int argc, char **argv)
 
 	vars = (t_vars){0};
 	if (argc != 2)
-		return (0);
+		return (-1);
 	if (ft_check_ber(argv[1]) == ERROR)
-		return (0);
+		return (-2);
 	vars.map = create_map_tab(argv[1]);
 	if (!vars.map)
-		return (0);
+		return (-3);
 	ft_mlx_win_init(&vars);
 	mlx_hook(vars.win, KeyPress, KeyPressMask, ft_key_hook, &vars);
 	mlx_hook(vars.win, ClientMessage, LeaveWindowMask, ft_mouse_hook, &vars);

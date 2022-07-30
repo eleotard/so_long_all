@@ -41,29 +41,32 @@ SRCS_BONUS	= main_and_init_bonus.c			\
 			swap_count_display_bonus.c 	\
 
 
-OBJ	= ${SRCS:%.c=%.o}
+OBJS	= ${SRCS:%.c=%.o}
 
-OBJ_BONUS	= ${SRCS_BONUS:%.c=%.o}
+OBJS_BONUS	= ${SRCS_BONUS:%.c=%.o}
 
 MLX		= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz 
 
 LIBFT	= -Llibft -lft
 
-CFLAGS	= -Wall -Werror -Wextra
+CFLAGS	= -g3 -Wall -Werror -Wextra
 
-CC		= clang
+CC		= gcc
 
 RM		= rm -f
 
 all: ${NAME}
 
-${NAME}: ${OBJ} libft/libft.a mlx_linux/libmlx_Linux.a
-	${CC} ${CFLAGS} -o ${NAME} ${OBJ} ${LIBFT} ${MLX}
+${NAME}: ${OBJS} libft/libft.a mlx_linux/libmlx_Linux.a
+	${CC} ${CFLAGS} -o ${NAME} ${OBJS} ${LIBFT} ${MLX}
+
+#malloc_test: $(OBJS) libft/libft.a mlx_linux/libmlx_Linux.a
+#	$(CC) $(CFLAGS) -fsanitize=undefined -rdynamic -o $@ ${OBJS} ${MLX} ${LIBFT} -L. -lmallocator
 
 bonus: ${BONUS}
 
-${BONUS}: ${OBJ_BONUS} libft/libft.a mlx_linux/libmlx_Linux.a
-	${CC} ${CFLAGS} -o ${BONUS} ${OBJ_BONUS} ${LIBFT} ${MLX}
+${BONUS}: ${OBJS_BONUS} libft/libft.a mlx_linux/libmlx_Linux.a
+	${CC} ${CFLAGS} -o ${BONUS} ${OBJS_BONUS} ${LIBFT} ${MLX}
 
 %.o: %.c 
 	${CC} ${CFLAGS} -I/usr/include -Imlx_linux -c $< -o $@
@@ -77,7 +80,7 @@ mlx_linux/libmlx_Linux.a:
 clean:
 	make -C libft clean
 	make -C mlx_linux clean
-	${RM} ${OBJ} ${OBJ_BONUS}
+	${RM} ${OBJS} ${OBJS_BONUS}
 
 fclean: clean
 	make -C libft fclean

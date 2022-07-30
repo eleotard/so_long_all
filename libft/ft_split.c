@@ -6,7 +6,7 @@
 /*   By: eleotard <eleotard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 17:16:21 by eleotard          #+#    #+#             */
-/*   Updated: 2022/04/11 15:57:49 by eleotard         ###   ########.fr       */
+/*   Updated: 2022/07/29 01:01:36 by eleotard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,19 @@ static int	ft_countwords(const char *s, char c)
 	return (count);
 }
 
-void	free_all(char **ptr, int k)
+void	free_all(char **tab)
 {
-	while (k != 0)
+	int	k;
+
+	k = 0;
+	while (tab[k])
+		k++;
+	while (k >= 0)
 	{
-		free(ptr[k]);
+		free(tab[k]);
 		k--;
 	}
-	free(ptr);
+	free(tab);
 }
 
 char	**ft_do_tab(char const *s, char c, char **tab, int k)
@@ -59,7 +64,7 @@ char	**ft_do_tab(char const *s, char c, char **tab, int k)
 			tab[k] = ft_substr(s, i, j);
 			if (!tab[k])
 			{
-				free_all(tab, k - 1);
+				free_all(tab);
 				return (0);
 			}
 			k++;
