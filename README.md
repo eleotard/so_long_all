@@ -3,7 +3,7 @@
 A simple game in 2D
 
 make bonus
-execute ./so_long_bonus map_glisse.ber
+and execute ./so_long_bonus map_glisse.ber
 
 You can use the map of your choice :)
 
