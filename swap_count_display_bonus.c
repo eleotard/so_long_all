@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap_count_display_bonus.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eleotard <eleotard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 00:55:08 by eleotard          #+#    #+#             */
-/*   Updated: 2022/05/10 19:35:12 by eleotard         ###   ########.fr       */
+/*   Updated: 2022/07/30 16:35:51 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,9 @@ void	ft_print_mooves_and_display(t_vars *vars, int *count)
 	char	*count_recup;
 	char	*base;
 
-	*count = *count + 1;
 	base = ft_strdup("Number of moves : ");
 	count_recup = ft_itoa(*count);
 	string = join(base, count_recup);
-	ft_display_str_and_number("Number of moves : ", count);
-	write(1, "\n", 1);
 	ft_display_txt_background(vars);
 	mlx_string_put(vars->mlx, vars->win, 60, (ft_map_height(vars->map)
 			* SIZEPIC) + 22, 0x000000, string);
