@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eleotard <eleotard@student.42.fr>          +#+  +:+       +#+         #
+#    By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/25 20:32:02 by eleotard          #+#    #+#              #
-#    Updated: 2022/05/14 19:22:34 by eleotard         ###   ########.fr        #
+#    Updated: 2022/09/05 14:10:45 by lcalvie          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRCS	= main_and_init.c			\
 			get_next_line_utils.c	\
 			error_gestion.c			\
 			check_valid_map.c		\
+			check_valid_path.c		\
 			check_parsing.c 		\
 			so_long_utils.c			\
 			map_material.c			\
@@ -32,6 +33,7 @@ SRCS_BONUS	= main_and_init_bonus.c			\
 			get_next_line_utils_bonus.c	\
 			error_gestion_bonus.c			\
 			check_valid_map_bonus.c		\
+			check_valid_path.c		\
 			check_parsing_bonus.c 		\
 			so_long_utils_bonus.c			\
 			map_material_bonus.c			\
