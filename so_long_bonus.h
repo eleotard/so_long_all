@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eleotard <eleotard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 15:38:32 by eleotard          #+#    #+#             */
-/*   Updated: 2022/05/13 16:48:47 by eleotard         ###   ########.fr       */
+/*   Updated: 2022/09/05 14:53:47 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct s_vars {
 char	*ft_strjoin_s(char *base, char *read);
 char	*join(char *base, char *read);
 int		ft_strcmp(char *s1, char *s2);
+int		ft_min(int a, int b);
 
 /*FREE ET ERREURS*/
 void	ft_destroy_all_message(char **map, void	*mlx, t_img *img,
@@ -83,6 +84,7 @@ int		ft_check_rectangular_map(char **map);
 int		ft_check_valid_map(char **map);
 int		ft_parsing_check(char *map_str);
 int		ft_check_occurence(char **map);
+int		ft_check_valid_path(char **map);
 void	ft_count_check_occurence(int *count_p, int *count_e,
 			int *count_c, char c);
 

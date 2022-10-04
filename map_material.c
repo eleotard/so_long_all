@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_material.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eleotard <eleotard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 00:49:30 by eleotard          #+#    #+#             */
-/*   Updated: 2022/05/10 19:26:39 by eleotard         ###   ########.fr       */
+/*   Updated: 2022/09/05 14:52:39 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*create_map_str(char *map_name)
 		tmp = ft_strdup(map_str);
 		map_str = join(map_str, get_next_line(fd));
 		if (!map_str)
-			break;
+			break ;
 	}
 	if (!map_str)
 		return (free(tmp), NULL);
@@ -59,7 +59,8 @@ char	**create_map_tab(char *map_name)
 	if (ft_check_valid_map(map) == ERROR
 		|| ft_check_rectangular_map(map) == ERROR
 		|| ft_check_map_edges(map) == ERROR
-		|| ft_check_occurence(map) == ERROR)
+		|| ft_check_occurence(map) == ERROR
+		|| ft_check_valid_path(map) == ERROR)
 		return (NULL);
 	return (map);
 }
